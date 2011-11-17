@@ -1,0 +1,37 @@
+
+on fs
+    mount ext4 /dev/block/nandc /system wait noatime nodev barrier=0
+
+# try to mount /data
+	wait /dev/block/nandd
+	mount ext4 /dev/block/nandd /data wait noatime nosuid nodev barrier=0
+	setupfs /dev/block/nandd	
+	umount /data
+	exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandd    
+	exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,noauto_da_alloc,barrier=0 /dev/block/nandd /data 
+
+# try to mount /cache
+    mount ext4 /dev/block/nandg /cache wait noatime nosuid nodev barrier=0
+	setupfs /dev/block/nandg
+    mount ext4 /dev/block/nandg /cache wait noatime nosuid nodev barrier=0
+    format_userdata Novo7
+
+on boot
+	chown system system /drv
+	chmod 0777 /drv	
+
+#insmod key & tp driver
+	insmod /drv/goodix_touch.ko
+	insmod /drv/sun4i-keyboard.ko
+
+# touch key
+    insmod /drv/hv2605.ko
+    
+# insmod mali driver 
+	insmod /drv/ump.ko
+	insmod /drv/mali.ko
+
+
+
+		
+
