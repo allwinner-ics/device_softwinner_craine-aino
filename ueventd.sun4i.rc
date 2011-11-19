@@ -21,3 +21,4 @@
 /sys/devices/virtual/input/input*   max         0660  root   input
 /sys/devices/virtual/input/input*   min         0660  root   input
 /sys/devices/virtual/input/input*   poll        0666  root   input
+
