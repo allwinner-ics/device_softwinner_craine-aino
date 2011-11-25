@@ -16,7 +16,7 @@ if [ ! -d $LINUXBSP_SRC ]; then
 	echo " cannot find you linux bsp dir (../lichee)!"
 	exit	
 fi
-DRV_DIR=$LINUXBSP_SRC/out/android/lib/modules/2.6.36-android*
+DRV_DIR=$LINUXBSP_SRC/out/android/lib/modules/*
 
 #######################################################################################
 # donnot change this var 

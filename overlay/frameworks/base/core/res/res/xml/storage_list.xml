@@ -39,6 +39,7 @@
              android:removable="false"
              android:emulated="true"  
              android:mtpReserve="100" 
+             android:allowMassStorage="true"
              android:maxFileSize="0"/>
 	<storage android:mountPoint="/mnt/extsd"
              android:storageDescription="extsd"
