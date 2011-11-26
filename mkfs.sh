@@ -11,7 +11,7 @@
 ANDROID_ROOT=$ANDROID_BUILD_TOP
 #PRODUCT_DIR=$ANDROID_ROOT/out/target/product/aw1618
 PRODUCT_DIR=$OUT
-LINUXBSP_SRC=$ANDROID_ROOT/../origin/lichee
+LINUXBSP_SRC=$ANDROID_ROOT/../lichee
 if [ ! -d $LINUXBSP_SRC ]; then
 	echo " cannot find you linux bsp dir (../lichee)!"
 	exit	
