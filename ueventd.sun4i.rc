@@ -1,8 +1,8 @@
 # disp driver
 /dev/disp                 0777   system     system 
 /dev/g2d             	  0777   system     system 
-/dev/cedar_dev            0660   system     system 
-/dev/ace_dev              0660   system     system 
+/dev/cedar_dev            0666   system     system 
+/dev/ace_dev              0666   system     system 
 /dev/ump				  0777   system		graphics
 /dev/mali				  0777   system		graphics
 /dev/ump				  0777   system 	graphics
