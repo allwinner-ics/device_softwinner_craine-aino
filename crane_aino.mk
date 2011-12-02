@@ -7,16 +7,20 @@ DEVICE_PACKAGE_OVERLAYS := device/softwinner/crane-aino/overlay
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-aino/ueventd.sun4i.rc:root/ueventd.sun4i.rc \
 	device/softwinner/crane-aino/init.sun4i.rc:root/init.sun4i.rc \
+	device/softwinner/crane-aino/init.sun4i.usb.rc:root/init.sun4i.usb.rc \
 	device/softwinner/crane-aino/media_profiles.xml:system/etc/media_profiles.xml \
-	device/softwinner/crane-aino/camera.cfg:system/etc/camera.cfg \
+	device/softwinner/crane-aino/camera.cfg:system/etc/camera.cfg 
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-aino/initlogo.rle:root/initlogo.rle
 
+#input device config
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-aino/sun4i-keyboard.kl:system/usr/keylayout/sun4i-keyboard.kl \
 	device/softwinner/crane-aino/hv_keypad.kl:system/usr/keylayout/hv_keypad.kl \
 	device/softwinner/crane-aino/gt80x.idc:system/usr/idc/gt80x.idc
+PRODUCT_COPY_FILES += \
+	device/softwinner/crane-aino/initlogo.rle:root/initlogo.rle
 	
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -24,6 +28,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-evb/vold.fstab:system/etc/vold.fstab
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mass_storage,adb \
+	ro.sf.lcd_density=120
 
 PRODUCT_CHARACTERISTICS := tablet
 
