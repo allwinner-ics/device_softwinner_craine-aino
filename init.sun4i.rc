@@ -46,7 +46,13 @@ on boot
     insmod /drv/sun4i-vibrator.ko 
     chmod 777 /sys/class/timed_output/sun4i-vibrator/enable
 
-
+#csi module
+	insmod /drv/videobuf-core.ko
+	insmod /drv/videobuf-dma-contig.ko
+	insmod /drv/gc0308.ko
+	insmod /drv/gt2005.ko
+	insmod /drv/sun4i_csi1.ko
+	insmod /drv/sun4i_csi0.ko
 
 
 
