@@ -37,7 +37,7 @@
              android:storageDescription="@string/storage_internal"
              android:primary="true"
              android:removable="false"
-             android:emulated="true"  
+             android:emulated="false"  
              android:mtpReserve="100" 
              android:allowMassStorage="true"
              android:maxFileSize="0"/>
@@ -47,6 +47,7 @@
              android:removable="true"
              android:emulated="false"  
              android:mtpReserve="0" 
+             android:allowMassStorage="true"
              android:maxFileSize="0"/>
 	<storage android:mountPoint="/mnt/usbhost1"
              android:storageDescription="usbhost1"

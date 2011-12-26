@@ -10,51 +10,51 @@ on early-init
 	mkdir /mnt/usbhost1 0000 system system
 
 on fs
-    mount ext4 /dev/block/nandc /system wait noatime nodev barrier=0
+    mount ext4 /dev/block/nandd /system wait noatime nodev barrier=0
 
 # try to mount /data
-	wait /dev/block/nandd
-	mount ext4 /dev/block/nandd /data wait noatime nosuid nodev barrier=0
-	setupfs /dev/block/nandd	
+	wait /dev/block/nande
+	mount ext4 /dev/block/nande /data wait noatime nosuid nodev barrier=0
+	setupfs /dev/block/nande	
 	umount /data
-	exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandd    
-	exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,noauto_da_alloc,barrier=0 /dev/block/nandd /data 
+	exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nande    
+	exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,noauto_da_alloc,commit=15,nodelalloc /dev/block/nande /data 
 
 # try to mount /cache
-    mount ext4 /dev/block/nandg /cache wait noatime nosuid nodev barrier=0
-	setupfs /dev/block/nandg
-    mount ext4 /dev/block/nandg /cache wait noatime nosuid nodev barrier=0
-    format_userdata Novo7
+    mount ext4 /dev/block/nandh /cache wait noatime nosuid nodev barrier=0
+	setupfs /dev/block/nandh
+	umount /cache
+    exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandh 
+    exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,noauto_da_alloc,commit=15,nodelalloc /dev/block/nandh /cache 
+        
+    format_userdata /dev/block/nandi Novo7
 
 on boot
-	chown system system /drv
-	chmod 0777 /drv	
 
 #insmod key & tp driver
-	insmod /drv/goodix_touch.ko
-	insmod /drv/sun4i-keyboard.ko
+	insmod /system/vendor/modules/goodix_touch.ko
 
 # touch key
-    insmod /drv/hv2605.ko
+    insmod /system/vendor/modules/hv2605.ko
     
 # insmod mali driver 
-	insmod /drv/ump.ko
-	insmod /drv/mali.ko
+	insmod /system/vendor/modules/ump.ko
+	insmod /system/vendor/modules/mali.ko
 
 #insmod gsensor driver
-	insmod /drv/bma250.ko
+	insmod /system/vendor/modules/bma250.ko
 
 # insmod vibrator      
-    insmod /drv/sun4i-vibrator.ko 
+    insmod /system/vendor/modules/sun4i-vibrator.ko 
     chmod 777 /sys/class/timed_output/sun4i-vibrator/enable
 
 #csi module
-	insmod /drv/videobuf-core.ko
-	insmod /drv/videobuf-dma-contig.ko
-	insmod /drv/gc0308.ko
-	insmod /drv/gt2005.ko
-	insmod /drv/sun4i_csi1.ko
-	insmod /drv/sun4i_csi0.ko
+	insmod /system/vendor/modules/videobuf-core.ko
+	insmod /system/vendor/modules/videobuf-dma-contig.ko
+	insmod /system/vendor/modules/gc0308.ko
+	insmod /system/vendor/modules/gt2005.ko
+	insmod /system/vendor/modules/sun4i_csi1.ko
+	insmod /system/vendor/modules/sun4i_csi0.ko
 
 
 

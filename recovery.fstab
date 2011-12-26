@@ -1,0 +1,11 @@
+# mount point	fstype		device					device2
+
+/boot			emmc		/dev/block/nanda
+/system			ext4		/dev/block/nandd
+/data			ext4		/dev/block/nande
+/misc			emmc		/dev/block/nandf
+/recovery		ext4		/dev/block/nandg
+/cache			ext4		/dev/block/nandh
+/sdcard			vfat		/dev/block/mmcblk0p1	/dev/block/nandi
+
+
