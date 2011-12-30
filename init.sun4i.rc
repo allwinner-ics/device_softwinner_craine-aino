@@ -18,14 +18,14 @@ on fs
 	setupfs /dev/block/nande	
 	umount /data
 	exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nande    
-	exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,noauto_da_alloc,commit=15,nodelalloc /dev/block/nande /data 
+	exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,journal_checksum,noauto_da_alloc /dev/block/nande /data  
 
 # try to mount /cache
     mount ext4 /dev/block/nandh /cache wait noatime nosuid nodev barrier=0
 	setupfs /dev/block/nandh
 	umount /cache
-    exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandh 
-    exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,noauto_da_alloc,commit=15,nodelalloc /dev/block/nandh /cache 
+   	exec /system/bin/logwrapper /system/bin/e2fsck -y /dev/block/nandh 
+    exec /system/bin/busybox mount -t ext4 -o noatime,nosuid,nodev,barrier=0,journal_checksum,noauto_da_alloc /dev/block/nandh /cache 
         
     format_userdata /dev/block/nandi Novo7
 
