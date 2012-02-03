@@ -56,6 +56,12 @@ on boot
 	insmod /system/vendor/modules/sun4i_csi1.ko
 	insmod /system/vendor/modules/sun4i_csi0.ko
 
+#network module
+	insmod /system/vendor/modules/usbnet.ko
+	insmod /system/vendor/modules/asix.ko
+	insmod /system/vendor/modules/qf9700.ko
+	insmod /system/vendor/modules/mcs7830.ko
+	insmod /system/vendor/modules/rtl8150.ko
 
 
 

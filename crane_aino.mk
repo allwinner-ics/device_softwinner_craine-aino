@@ -22,7 +22,8 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/crane-aino/gt80x.idc:system/usr/idc/gt80x.idc
 
 PRODUCT_COPY_FILES += \
-	device/softwinner/crane-aino/initlogo.rle:root/initlogo.rle
+	device/softwinner/crane-aino/initlogo.rle:root/initlogo.rle \
+	device/softwinner/crane-aino/media/bootanimation.zip:system/media/bootanimation.zip
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-aino/vold.fstab:system/etc/vold.fstab
@@ -30,7 +31,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mass_storage,adb \
 	ro.sf.lcd_density=120 \
-	ro.product.firmware=0.3
+	ro.product.firmware=0.6
 
 $(call inherit-product-if-exists, device/softwinner/crane-aino/modules/modules.mk)
 
